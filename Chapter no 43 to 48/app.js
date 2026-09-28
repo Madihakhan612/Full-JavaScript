@@ -25,21 +25,34 @@ for(let i = 0; i < buttons.length; i++){
 
 //Q4.Display an image in browser. Change the picture on mouseover and set the first picture on mouseout. 
 
-function changeImage() {
-document.getElementById("myImage").src ="./images/car.jpg";
+function changeImage(e) {
+console.log(e.target.src)
+e.target.src ="./images/car.jpg";
 }
 
-function firstImage() {
-document.getElementById("myImage").src = "./image/bike.jpg";
+function previousImage(e) {
+console.log(e.target.src)
+e.target.src = "./images/bike.jpg";
 }
+
 document.write="<br>"
 //Q5.Show a counter in browser. Counter should increase on click on increase button and decrease on click on decrease button. And show updated counter value in browser. 
 
-let increaseBtn = document.querySelector("#increase")
+let count = 0;
 
-increaseBtn.addEventListener("click", function() {
-    let counterValue = document.querySelector("#counter")
-    counterValue.innerHTML++
-    
-})
+        document.querySelector("#increase").addEventListener("click", function () {
 
+            count = count + 1;
+
+            document.querySelector("#counter").textContent = count;
+
+        });
+
+
+        document.querySelector("#decrease").addEventListener("click", function () {
+
+            count = count - 1;
+
+            document.querySelector("#counter").textContent = count;
+
+        });
